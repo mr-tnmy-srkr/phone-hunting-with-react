@@ -6,9 +6,10 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { NavLink } from "react-router-dom";
 
 const PhonesCard = ({ phone }) => {
-  const { image, phone_name, brand_name, price, rating } = phone || {};
+  const { id,image, phone_name, brand_name, price, rating } = phone || {};
   return (
     <div>
       <Card className="">
@@ -39,15 +40,20 @@ const PhonesCard = ({ phone }) => {
             With plenty of talk and listen time, voice-activated Siri access,
             and an available wireless charging case.
           </Typography>
+          <div>
+            {rating}
+          </div>
         </CardBody>
         <CardFooter className="pt-0">
+          <NavLink to={`/phones/${id}`}>
           <Button
             ripple={false}
             fullWidth={true}
             className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
           >
-            Add to Cart
+           See Details
           </Button>
+          </NavLink>
         </CardFooter>
       </Card>
     </div>
