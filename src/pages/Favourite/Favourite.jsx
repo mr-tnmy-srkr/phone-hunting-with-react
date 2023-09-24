@@ -5,6 +5,7 @@ import PhonesCard from "../../components/Phones.jsx/PhonesCard";
 const Favourite = () => {
   const [favourites, setFavourites] = useState();
   const [noFound, setNoFound] = useState("");
+  const [isShow, setIsShow] = useState(false);
   useEffect(() => {
     const favouritePhone = JSON.parse(localStorage.getItem("favourites"));
     if (favouritePhone) {
@@ -13,13 +14,13 @@ const Favourite = () => {
       setNoFound("No Data Found");
     }
   }, []);
-  // console.log(favourites);
-const handleRemoveAll =()=>{
-localStorage.clear();
-setFavourites([]);
-setNoFound('No Data Found')
-}
 
+
+  const handleRemoveAll = () => {
+    localStorage.clear();
+    setFavourites([]);
+    setNoFound("No Data Found");
+  };
 
   return (
     <div>
@@ -28,14 +29,34 @@ setNoFound('No Data Found')
           {noFound}
         </div>
       ) : (
-       <div>
-     {favourites && <div onClick={handleRemoveAll} className="text-center my-10"><button className="bg-green-500 p-5 text-lg font-bold text-white">Delete All Favourite</button></div>}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10">
+        <div>
+          {favourites && (
+            <div onClick={handleRemoveAll} className="text-center my-10">
+              <button className="bg-green-500 p-5 text-lg font-bold text-white">
+                Delete All Favourite
+              </button>
+            </div>
+          )}
+          <div className="grid md:grid-cols-2 w-[50vw] mx-auto my-10">
+            {isShow
+              ? favourites?.map((phone) => (
+                  <PhonesCard key={phone.id} phone={phone}></PhonesCard>
+                ))
+              : favourites
+                  ?.slice(0, 2)
+                  .map((phone) => (
+                    <PhonesCard key={phone.id} phone={phone}></PhonesCard>
+                  ))}
+          </div>
           {
-            favourites?.map(phone=><PhonesCard key={phone.id} phone={phone}></PhonesCard>)
+           
+            <div onClick={() => setIsShow(!isShow)} className="text-center my-10">
+            <button className={`bg-green-500 p-3 text-lg font-bold `}>
+              {isShow ? "Show Less" : "Show More"}
+            </button>
+          </div>
           }
         </div>
-       </div>
       )}
     </div>
   );
