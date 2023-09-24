@@ -14,6 +14,13 @@ const Favourite = () => {
     }
   }, []);
   // console.log(favourites);
+const handleRemoveAll =()=>{
+localStorage.clear();
+setFavourites([]);
+setNoFound('No Data Found')
+}
+
+
   return (
     <div>
       {noFound ? (
@@ -22,7 +29,8 @@ const Favourite = () => {
         </div>
       ) : (
        <div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10 ">
+     {favourites && <div onClick={handleRemoveAll} className="text-center my-10"><button className="bg-green-500 p-5 text-lg font-bold text-white">Delete All Favourite</button></div>}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 my-10">
           {
             favourites?.map(phone=><PhonesCard key={phone.id} phone={phone}></PhonesCard>)
           }
