@@ -61,7 +61,7 @@ const PhonesCard = ({ phone }) => {
           </div>
         </CardBody>
         <CardFooter className="pt-0">
-          <NavLink to={`/phones/${id}`}>
+          <NavLink to={`/phones/${id}`} state={phone_name}>
             <Button
               ripple={false}
               fullWidth={true}

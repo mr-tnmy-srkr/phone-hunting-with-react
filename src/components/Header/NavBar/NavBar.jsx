@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <nav className="flex justify-between items-center shadow-xl py-8 px-5 ">
-      <h1 className="text-xl md:text-4xl font-semibold ">Phone Shop</h1>
+     <Link to="/"><h1 className="text-xl md:text-4xl font-semibold ">Phone Shop</h1></Link>
       <ul className="flex gap-5 font-semibold text-lg md:text-2xl">
         <li>
           <NavLink

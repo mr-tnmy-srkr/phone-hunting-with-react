@@ -1,13 +1,28 @@
 // import React from "react";
 // import { Input, Button } from "@material-tailwind/react";
 
+// import { useState } from "react";
+
 const Banner = () => {
+  // const [phones, setPhones] = useState();
   // const [text, setText] = React.useState("");
   // const onChange = ({ target }) => setText(target.value);
 
   const handleSearch = (e) => {
     e.preventDefault();
+
+    // const searchValue = e.target.search.value;
+    // console.log(searchValue);
+    // localStorage.setItem("search", searchValue);
+
+    // const filterData = phones?.filter(
+      // (phone) => phone.brand_name === searchValue
+    // );
+    // setPhones(filterData);
+    // console.log(filterData);
   };
+
+  // console.log(phones);
 
   return (
     <div className=" min-h-[500px]">
