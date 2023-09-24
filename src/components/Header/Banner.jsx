@@ -6,7 +6,7 @@ const Banner = () => {
   const onChange = ({ target }) => setText(target.value);
 
   return (
-    <div className="bg-deep-purple-100 min-h-[500px]">
+    <div className="bg-deep-purple-50 min-h-[500px]">
       <div className=" flex justify-center items-center h-[80vh]  max-w-[50rem] mx-auto">
         <Input
           type="text"

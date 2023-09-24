@@ -1,6 +1,14 @@
+import { useEffect, useState } from "react";
 import PhonesCard from "./PhonesCard";
 
-const Phones = ({phones}) => {
+const Phones = () => {
+const[phones,setPhones] = useState([]);
+useEffect(()=>{
+    fetch('phones.json')
+    .then(res=>res.json())
+    .then(data=>setPhones(data))
+},[])
+
     return (
         <div className="my-10">
             <h1 className="text-center my-5 text-2xl font-semibold">Our Phones Collections</h1>
