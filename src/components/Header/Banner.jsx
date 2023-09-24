@@ -1,31 +1,56 @@
-import React from "react";
-import { Input, Button } from "@material-tailwind/react";
+// import React from "react";
+// import { Input, Button } from "@material-tailwind/react";
 
 const Banner = () => {
-  const [text, setText] = React.useState("");
-  const onChange = ({ target }) => setText(target.value);
+  // const [text, setText] = React.useState("");
+  // const onChange = ({ target }) => setText(target.value);
 
   return (
-    <div className="bg-deep-purple-50 min-h-[500px]">
-      <div className=" flex justify-center items-center h-[80vh]  max-w-[50rem] mx-auto">
-        <Input
-          type="text"
-          label="Search by Category ..."
-          value={text}
-          onChange={onChange}
-          className=" "
-          containerProps={{
-            className: "min-w-0",
-          }}
-        />
-        <Button
-          size="sm"
-          color={text ? "gray" : "blue-gray"}
-          disabled={!text}
-          className=" rounded px-6 py-3"
-        >
-          Search
-        </Button>
+    <div className=" min-h-[500px]">
+     <img
+        className="h-[75vh] w-full"
+        src="https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+        alt=""
+      />
+      <div className=" flex justify-center items-center max-w-[50rem] mx-auto">
+        
+      <div className="searchbar absolute bottom-[43%] w-full px-20 md:px-56">
+        <form onSubmit="">
+          <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
+            Search
+          </label>
+          <div className="relative ">
+            <div className=" absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg
+                className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+            </div>
+            <input
+              type="search"
+              name="search"
+              id="default-search"
+              className="block w-full p-4 md:pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Search by category..."
+              required
+            />
+            <button
+              type="submit"
+              className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
       </div>
     </div>
   );
